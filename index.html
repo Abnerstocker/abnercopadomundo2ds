@@ -3,49 +3,96 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Copa do Mundo — Resumo por ano</title>
+	<title>Copa do Mundo — Resumo</title>
 	<link rel="stylesheet" href="styles.css">
+	<script defer src="scripts/main.js"></script>
 	</head>
-<body>
-	<header>
-		<h1>Copa do Mundo — Campeões e vices</h1>
-		<p>Selecione um ano para ver o campeão e o vice.</p>
-	</header>
-	<main>
-		<section class="pages">
-			<h2>Páginas por ano</h2>
-			<ul>
-				<li><a href="1930.html">1930</a></li>
-				<li><a href="1934.html">1934</a></li>
-				<li><a href="1938.html">1938</a></li>
-				<li><a href="1950.html">1950</a></li>
-				<li><a href="1954.html">1954</a></li>
-				<li><a href="1958.html">1958</a></li>
-				<li><a href="1962.html">1962</a></li>
-				<li><a href="1966.html">1966</a></li>
-				<li><a href="1970.html">1970</a></li>
-				<li><a href="1974.html">1974</a></li>
-				<li><a href="1978.html">1978</a></li>
-				<li><a href="1982.html">1982</a></li>
-				<li><a href="1986.html">1986</a></li>
-				<li><a href="1990.html">1990</a></li>
-				<li><a href="1994.html">1994</a></li>
-				<li><a href="1998.html">1998</a></li>
-				<li><a href="2002.html">2002</a></li>
-				<li><a href="2006.html">2006</a></li>
-				<li><a href="2010.html">2010</a></li>
-				<li><a href="2014.html">2014</a></li>
-				<li><a href="2018.html">2018</a></li>
-				<li><a href="2022.html">2022</a></li>
-			</ul>
+<body class="site-root">
+	<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar">
+			<div class="nav-left">
+				<a class="logo" href="#">Copa2DS</a>
+			</div>
+			<div class="nav-center" aria-label="Navegação principal">
+				<a href="#home">Início</a>
+				<a href="#resources">Recursos</a>
+				<a href="#pricing">Preços</a>
+				<a href="#help">Ajuda</a>
+			</div>
+			<div class="nav-right">
+				<button class="cta">Começar Agora</button>
+				<button class="hamburger" aria-label="Abrir menu">☰</button>
+			</div>
+		</nav>
+
+		<!-- Hero -->
+		<header id="home" class="hero">
+			<div class="hero-content">
+				<h1 class="hero-title">Descubra os Campeões do Mundo com Estilo</h1>
+				<p class="hero-sub">Resumo rápido e acessível dos vencedores e vice-campeões por ano.</p>
+				<div class="hero-actions">
+					<a href="#help" class="btn btn-primary">Começar</a>
+					<a href="#resources" class="btn btn-outline">Ver Recursos</a>
+				</div>
+			</div>
+			<div class="hero-illustration">
+				<div class="placeholder">Imagem ilustrativa</div>
+			</div>
+		</header>
+
+		<!-- Help / Support Section -->
+		<section id="help" class="help-section">
+			<h2>Central de Suporte</h2>
+			<p class="help-intro">Como podemos ajudar?</p>
+
+			<div class="help-search">
+				<input type="search" placeholder="Como podemos ajudar?" aria-label="Busca de suporte">
+				<button class="btn btn-primary">Buscar</button>
+			</div>
+
+			<div class="help-grid">
+				<article class="help-card">
+					<div class="icon">👤</div>
+					<h3>Minha Conta</h3>
+				</article>
+				<article class="help-card">
+					<div class="icon">💳</div>
+					<h3>Pagamentos</h3>
+				</article>
+				<article class="help-card">
+					<div class="icon">⚙️</div>
+					<h3>Configurações</h3>
+				</article>
+				<article class="help-card">
+					<div class="icon">🛠️</div>
+					<h3>Solução de Problemas</h3>
+				</article>
+			</div>
+
+			<div class="faq">
+				<h3>Perguntas Frequentes</h3>
+				<div class="accordion" data-accordion>
+					<button class="accordion-item">Como atualizo meus dados?</button>
+					<div class="accordion-panel">Vá até sua conta, clique em editar e salve as alterações.</div>
+
+					<button class="accordion-item">Como reporto um problema?</button>
+					<div class="accordion-panel">Abra um ticket via o botão 'Falar com o Suporte' ou envie um e-mail para suporte@example.com.</div>
+
+					<button class="accordion-item">Posso exportar os dados?</button>
+					<div class="accordion-panel">Sim — oferecemos exportação CSV nas configurações da conta.</div>
+				</div>
+			</div>
+
+			<div class="help-footer">
+				<button class="btn btn-primary">Falar com o Suporte</button>
+			</div>
 		</section>
-		<section class="about">
-			<h2>Sobre</h2>1
-			<p>Projeto simples com páginas estáticas sobre os campeões e vices da Copa do Mundo.</p>
-		</section>
-	</main>
-	<footer>
-		<p>Gerado por projeto pessoal — veja o <a href="README.md">README</a>.</p>
-	</footer>
+
+		<footer class="site-footer">
+			<div>© 2026 Copa2DS — Projeto pessoal</div>
+			<div><a href="README.md">README</a></div>
+		</footer>
+	</div>
 </body>
 </html>
