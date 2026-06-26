@@ -14,3 +14,8 @@ main{max-width:860px;margin:1.5rem auto;padding:0 1rem}
 .pages a:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(11,110,253,0.08)}
 .about{margin-top:1.5rem;color:var(--muted)}
 footer{max-width:860px;margin:2rem auto;padding:0 1rem;color:var(--muted);font-size:0.9rem}
+
+/* Page specific */
+.winner{font-size:1.05rem;margin:0.6rem 0;color:#0b6efd}
+.runner{font-size:1.02rem;margin:0.2rem 0;color:var(--muted)}
+.flag{font-size:1.4rem;margin-right:0.6rem;vertical-align:middle}

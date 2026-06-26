@@ -18,14 +18,32 @@ TEMPLATE = '''<!doctype html>
     <h1>Copa do Mundo — {year}</h1>
   </header>
   <main>
-    <p><strong>Campeão:</strong> {champion}</p>
-    <p><strong>Vice:</strong> {runner_up}</p>
+    <p class="winner"><span class="flag">{flag_champion}</span> <strong>Campeão:</strong> {champion}</p>
+    <p class="runner"><span class="flag">{flag_runner}</span> <strong>Vice:</strong> {runner_up}</p>
     <p><a href="{rel}/index.html">Voltar</a></p>
   </main>
   <footer>Fonte: compilado manualmente</footer>
 </body>
 </html>
 '''
+
+# Map country names (as in JSON) to emoji flag. Add entries as needed.
+FLAG_MAP = {
+    'Uruguai': '🇺🇾',
+    'Argentina': '🇦🇷',
+    'Itália': '🇮🇹',
+    'Tchecoslováquia': '🇨🇿',
+    'Hungria': '🇭🇺',
+    'Brasil': '🇧🇷',
+    'Alemanha Ocidental': '🇩🇪',
+    'Suécia': '🇸🇪',
+    'Inglaterra': '🏴',
+    'Países Baixos': '🇳🇱',
+    'França': '🇫🇷',
+    'Alemanha': '🇩🇪',
+    'Espanha': '🇪🇸',
+    'Croácia': '🇭🇷',
+}
 
 def main():
     data = json.loads(DATA.read_text(encoding='utf-8'))
@@ -36,7 +54,9 @@ def main():
         # page path at root
         out = ROOT / f"{year}.html"
         rel = '.'
-        html = TEMPLATE.format(year=year, champion=champion, runner_up=runner, rel=rel)
+        flag_champion = FLAG_MAP.get(champion, '')
+        flag_runner = FLAG_MAP.get(runner, '')
+        html = TEMPLATE.format(year=year, champion=champion, runner_up=runner, rel=rel, flag_champion=flag_champion, flag_runner=flag_runner)
         out.write_text(html, encoding='utf-8')
         print('Wrote', out)
 
