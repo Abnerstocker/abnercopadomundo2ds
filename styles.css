@@ -72,3 +72,9 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe U
   .help-grid{grid-template-columns:1fr}
   .hero-title{font-size:1.5rem}
 }
+
+/* Years grid */
+.years-section{margin:1.6rem 0}
+.years-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:0.6rem}
+.year-link{display:inline-flex;align-items:center;justify-content:center;padding:0.6rem;border-radius:8px;background:var(--card);color:var(--accent-2);text-decoration:none;font-weight:600;transition:all 0.25s ease}
+.year-link:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(2,6,23,0.6)}
