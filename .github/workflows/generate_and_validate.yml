@@ -1,0 +1,35 @@
+name: Generate and validate pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install tidy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tidy
+
+      - name: Generate pages
+        run: python3 scripts/generate_pages.py
+
+      - name: Validate HTML with tidy
+        run: tidy -e *.html
+
+      - name: Show repo status (debug)
+        run: |
+          git status --porcelain
+          git --no-pager diff --name-only || true
