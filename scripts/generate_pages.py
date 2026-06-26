@@ -14,15 +14,26 @@ TEMPLATE = '''<!doctype html>
   <link rel="stylesheet" href="{rel}/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Copa do Mundo — {year}</h1>
-  </header>
-  <main>
-    <p class="winner"><span class="flag">{flag_champion}</span> <strong>Campeão:</strong> {champion}</p>
-    <p class="runner"><span class="flag">{flag_runner}</span> <strong>Vice:</strong> {runner_up}</p>
-    <p><a href="{rel}/index.html">Voltar</a></p>
-  </main>
-  <footer>Fonte: compilado manualmente</footer>
+  <div class="container">
+    <header class="year-header">
+      <h1>Copa do Mundo — {year}</h1>
+      <div class="meta">Sede: {host} • Placar da final: {final_score}</div>
+    </header>
+    <main>
+      <section class="result">
+        <p class="winner"><span class="flag">{flag_champion}</span> <strong>Campeão:</strong> {champion}</p>
+        <p class="runner"><span class="flag">{flag_runner}</span> <strong>Vice:</strong> {runner_up}</p>
+      </section>
+
+      <section class="notes">
+        <h2>Curiosidades</h2>
+        <p>{note}</p>
+      </section>
+
+      <p><a href="{rel}/index.html">← Voltar</a></p>
+    </main>
+    <footer class="site-footer">Fonte: compilado manualmente</footer>
+  </div>
 </body>
 </html>
 '''
@@ -56,7 +67,10 @@ def main():
         rel = '.'
         flag_champion = FLAG_MAP.get(champion, '')
         flag_runner = FLAG_MAP.get(runner, '')
-        html = TEMPLATE.format(year=year, champion=champion, runner_up=runner, rel=rel, flag_champion=flag_champion, flag_runner=flag_runner)
+        final_score = item.get('final_score', '')
+        host = item.get('host', '')
+        note = item.get('note', '')
+        html = TEMPLATE.format(year=year, champion=champion, runner_up=runner, rel=rel, flag_champion=flag_champion, flag_runner=flag_runner, final_score=final_score, host=host, note=note)
         out.write_text(html, encoding='utf-8')
         print('Wrote', out)
 
